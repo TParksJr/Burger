@@ -1,0 +1,19 @@
+body {
+    background-color: beige;
+}
+
+.jumbotron {
+    background-color: beige;
+    align-content: center;
+}
+
+#headerImg {
+    width: 50px;
+    height: auto;
+}
+
+.smallImg {
+    width: 20px;
+    height: auto;
+    align-content: center;
+}

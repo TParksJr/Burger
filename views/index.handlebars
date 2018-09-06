@@ -1,0 +1,27 @@
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <h3>Burgers still to Devour</h3>
+            <ul id="burgers" class="list-group">
+                {{#each burgers}}
+                <li class="list-group-item">
+                    <p class="text-center">{{this.name}}</p>
+                    <img src="http://vectips.com/wp-content/uploads/2016/02/25.jpg" class="smallImg">
+                    <button class="btn btn-danger" id="devour">Devour this burger!</button>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <h3>Burger Graveyard</h3>
+            <ul id="eatenBurgers">
+                {{#each eatenBurgers}}
+                <li class="list-group-item">
+                    <p class="text-center">{{this.name}}</p>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
