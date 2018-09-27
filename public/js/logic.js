@@ -3,11 +3,16 @@ $(function () {
     $(document).on("click", "#submit", function (event) {
         event.preventDefault();
         var name = $("#burger").val().trim();
-        $.post("/burgers/add", {
-            name: name,
-            devourved: false
-        }, function () {
-            $("#burger").val("");
+
+        $.ajax({
+            method: "POST",
+            url: "/burgers/add",
+            data: {
+                name: name,
+                devoured: false
+            }
+        }).then(function(data) {
+            location.reload();
         });
     });
 
@@ -21,6 +26,5 @@ $(function () {
         }).then(function(data) {
           location.reload();
         });
-      
-      });
+    });
 });
