@@ -2,7 +2,7 @@
   "name": "burger",
   "version": "1.0.0",
   "description": "A fullstack, MySQL, Express, Handlebars app.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,5 +28,8 @@
     "handlebars": "^4.0.11",
     "mysql": "^2.16.0",
     "path": "^0.12.7"
+  },
+  "engines": {
+    "node": "4.1.1"
   }
 }
