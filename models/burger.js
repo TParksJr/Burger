@@ -1,20 +1,22 @@
-/*var orm = require("../config/orm.js");
+var orm = require("../config/orm.js");
 
 var burger = {
-    selectAll: function() {
-      orm.selectAll('burgers', function(res) {
-      });
-    },
-  
-    insertOne: function() {
-      orm.insertOne('burgers', cols, vals, function(res) {
-      });
-    },
-  
-    updateOne: function() {
-      orm.updateOne('burgers', function(res) {
-      });
-    }
-  };
+  selectAll: function (cb) {
+    orm.selectAll("burgers", function (res) {
+      cb(res);
+    });
+  },
 
-module.exports = burger;*/
+  insertOne: function (name, cb) {
+    orm.insertOne("burgers", ["name", "devoured"], [name, false], function (res) {
+
+    });
+  },
+
+  updateOne: function (id, cb) {
+    var condition = "id=" + id;
+    orm.updateOne("burgers", {devoured: true}, condition, cb);
+  }
+};
+
+module.exports = burger;

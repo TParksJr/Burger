@@ -1,14 +1,11 @@
-/*var connection = require("./connection.js");
+var connection = require("./connection.js");
 
 var orm = {
-    selectAll: function() {
-        var query = "SELECT * FROM burgers;";
+    selectAll: function(tableInput, cb) {
+        var query = "SELECT * FROM " + tableInput + ";";
         connection.query(query, function(err, res) {
             if (err) throw err;
-            res.json({ 
-                burger: res.body.name,
-                devoured: res.body.devoured
-            });
+            cb(res);
         });
     },
     insertOne: function() {
@@ -25,4 +22,4 @@ var orm = {
     }
 };
 
-module.exports = orm;*/
+module.exports = orm;
