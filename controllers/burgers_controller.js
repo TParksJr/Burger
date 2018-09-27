@@ -8,17 +8,21 @@ module.exports = function (app) {
     });
 
     app.get("/burgers", function (req, res) {
-        burger.selectAll(function(data) {
+        burger.selectAll(function (data) {
             var hbsObject = { burgers: data };
             res.render("index", hbsObject);
         });
     });
 
-    app.post("/new", function (req, res) {
-        
+    app.post("/burgers/add", function (req, res) {
+        burger.insertOne(req.body.name, function (result) {
+            res.redirect("/");
+        });
     });
 
-    app.put("/update", function (req, res) {
-        
+    app.put("/burgers/update/:id", function (req, res) {
+        burger.updateOne(req.params.id, function (result) {
+            res.json("/");
+        });
     });
 };

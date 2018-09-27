@@ -9,7 +9,7 @@ var burger = {
 
   insertOne: function (name, cb) {
     orm.insertOne("burgers", ["name", "devoured"], [name, false], function (res) {
-
+      
     });
   },
 

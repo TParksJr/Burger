@@ -1,24 +1,26 @@
 $(function () {
 
-    $(window).on("click", "#submit", function (event) {
+    $(document).on("click", "#submit", function (event) {
         event.preventDefault();
-        let name = $("#burger").val().trim();
-        $.post("/new", {
+        var name = $("#burger").val().trim();
+        $.post("/burgers/add", {
             name: name,
             devourved: false
         }, function () {
-            console.log("Post request sent.");
             $("#burger").val("");
         });
     });
 
-    $(window).on("click", "#devour", function (event) {
+    $(".devour-form").on("submit", function(event) {
         event.preventDefault();
-        $.put("/update", {
-            name: this.name,
-            devourved: true
-        }, function () {
-            console.log("Put request sent.");
+      
+        var burger_id = $(this).children(".burger_id").val();
+        $.ajax({
+          method: "PUT",
+          url: "/burgers/update/" + burger_id
+        }).then(function(data) {
+          location.reload();
         });
-    });
+      
+      });
 });

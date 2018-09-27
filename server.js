@@ -6,11 +6,6 @@ var path = require("path");
 
 var PORT = process.env.PORT || 8080;
 
-var data = {
-    burgers: [], 
-    eatenBurgers: []
-};
-
 app = express();
 
 app.use(parser.urlencoded({ extended: true }));
